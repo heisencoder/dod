@@ -46,6 +46,7 @@ OS_Link::OS_Link() : width(0), height(0), bpp(0), flags(0),
 					 audio_channels(2), audio_buffers(512),
 					 gamefileLen(50), keylayout(0), keyLen(256)
 {
+	printf ("OS_LINK Constructor");
 #define MACOSX
 #ifdef MACOSX
 	strcpy(pathSep,"/");
@@ -67,6 +68,7 @@ OS_Link::OS_Link() : width(0), height(0), bpp(0), flags(0),
 // uses defaults set by loadDefaults function (1024x768)
 void OS_Link::init()
 {
+	printf("Starting OS_Link::init()\n");
 	loadOptFile();
 
 	Uint32 ticks1, ticks2;
@@ -222,6 +224,7 @@ void OS_Link::init()
 			}
 		}
 	}
+	printf("Init complete\n");
 }
 
 // Used to check for keystrokes and application termination

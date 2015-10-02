@@ -34,6 +34,8 @@ extern OS_Link		oslink;
 extern Player		player;
 extern Scheduler	scheduler;
 
+int ClearColor = 0;
+
 // Constructor
 Viewer::Viewer() : VCNTRX(128), VCNTRY(76),
 				   fadChannel(3), buzzStep(300), midPause(2500),
@@ -353,6 +355,7 @@ void Viewer::setup_opengl()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0, oslink.width, 0, oslink.height);
+	ClearColor = 1;
 }
 
 void Viewer::setVidInv(bool inv)
@@ -379,7 +382,9 @@ void Viewer::setVidInv(bool inv)
 		fgColor[1] = 0.0;
 		fgColor[2] = 0.0;
 	}
-	glClearColor(bgColor[0], bgColor[1], bgColor[2], 0.0);
+	if ( ClearColor == 1 ) {
+		glClearColor(bgColor[0], bgColor[1], bgColor[2], 0.0);
+	}
 }
 
 // This is the main renderer routine.  It draws either

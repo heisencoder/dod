@@ -60,6 +60,8 @@ int main(int argc, char * argv[])
 	//printvls();
 	//exit(0);
 
+	printf( "Starting DoD.\n" );
+
 	oslink.init();
 	return 0;
 }
