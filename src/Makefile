@@ -1,11 +1,11 @@
-CC      = @gcc -Wall -ansi
+CC      = @g++ -Wall -ansi
 CCLINK  = -lGL -lGLU -lSDL -lSDL_mixer
 CCFLAGS = -c -DLINUX
 
 all: dod
 
 dod: creature.o dod.o dodgame.o dungeon.o enhanced.o object.o oslink.o parser.o player.o sched.o viewer.o
-	$(CC) $(CCLINK) -o dod creature.o dod.o dodgame.o dungeon.o enhanced.o object.o oslink.o parser.o player.o sched.o viewer.o
+	$(CC) -o dod creature.o dod.o dodgame.o dungeon.o enhanced.o object.o oslink.o parser.o player.o sched.o viewer.o $(CCLINK)
 
 creature.o: creature.cpp creature.h
 	$(CC) $(CCFLAGS) creature.cpp
